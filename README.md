@@ -1,6 +1,6 @@
 # Herta-CODMW-GUI-II / 黑塔终端
 > 属于 [**Herta-Launcher**](https://github.com/SLSYSL/Herta-Launcher) 系列：CODMW GUI II (使命召唤：现代战争 2019 - 游戏图形用户界面v2.0启动器)  
-> 当前项目处于开发阶段，开发完成将公布上传源码
+> 当前项目处于测试阶段，如果有问题请及时反馈
 
 ## 关于 Herta-Launcher 系列
 一套游戏启动器，为玩家提供更好的体验
@@ -16,3 +16,7 @@
 - DusKal - 开发者/创始者
 - monocolotion - 开发者
 - MaymoN777(云影社区) - 提供支持
+
+## 联系
+- 用户交流反馈QQ群号：1046915992
+- 主要负责人（LANREN）QQ号：2118254764
