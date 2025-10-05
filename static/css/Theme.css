@@ -1,0 +1,172 @@
+/* 
+    此 CSS 文件存放深色模式的样式
+*/
+
+/* 浅色 */
+.light-mode .text-warning {
+    color: rgb(255, 145, 0) !important;
+}
+/* 深色 */
+.dark-mode footer {
+    color: white;
+}
+/* 下雪 */
+.dark-mode .snow {
+    background: white;
+}
+
+.dark-mode {
+    color: white !important;
+}
+
+.dark-mode .GUI-container {
+    background: rgba(30, 30, 46, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .sidebar {
+    background: rgba(45, 45, 61, 0.6);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .sidebar-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .nav-item {
+    color: #cccccc;
+}
+
+.dark-mode .nav-item:hover,
+.dark-mode .nav-item.active {
+    background: rgba(76, 201, 240, 0.15);
+    color: #20cbff;
+}
+
+/* 深色模式下拉菜单 */
+.dark-mode .dropdown-menu {
+    background: rgba(45, 45, 61, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .dropdown-item {
+    color: #cccccc;
+}
+
+.dark-mode .dropdown-item:hover {
+    background: rgba(76, 201, 240, 0.15);
+    color: #20cbff;
+}
+
+.dark-mode .GUI-content {
+    background: rgba(30, 30, 46, 0.4);
+}
+
+.dark-mode .card {
+    color: white;
+    background: rgba(45, 45, 61, 0.6);
+}
+
+.dark-mode .card:hover {
+    background: rgba(255, 255, 255, 0.089) !important;
+}
+
+.dark-mode .card .card:hover {
+    background: rgba(255, 255, 255, 0.103) !important;
+}
+
+.dark-mode .card .card {
+    background: rgba(255, 255, 255, 0.034);
+}
+
+.dark-mode .GUI-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.dark-mode .GUI-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .GUI-btn.primary {
+    background: #4361ee;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .GUI-btn.primary:hover {
+    background: #3a56e0;
+}
+
+.dark-mode .GUI-input {
+    background: rgba(30, 30, 46, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.dark-mode .GUI-input:focus {
+    border-color: #4cc9f0;
+    box-shadow: 0 0 0 2px rgba(76, 201, 240, 0.3);
+}
+
+.dark-mode .GUI-input::placeholder {
+    color: #aaaaaa;
+}
+
+.dark-mode .content-section-header {
+    background: rgba(45, 45, 61, 0.8);
+}
+
+.dark-mode .content-section-header:hover {
+    background: rgba(255, 255, 255, 0.103);
+}
+
+.dark-mode .table {
+    --bs-table-color: #ffffff;
+    --bs-table-bg: transparent;
+    --bs-table-border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .table-hover>tbody>tr:hover {
+    --bs-table-accent-bg: rgba(76, 201, 240, 0.1);
+}
+
+.dark-mode .accordion-button {
+    color: #ffffff;
+    background-color: #2d2d3de0;
+}
+
+.dark-mode .accordion-body {
+    background-color: #2d2d3de0;
+    color: #cccccc;
+}
+
+.dark-mode .accordion-button:hover {
+    background-color: rgba(30, 30, 46, 0.6);
+}
+
+/* 模态框 */
+.dark-mode .modal-footer .GUI-btn {
+    background: rgba(0, 0, 0, 0.05);
+    color: black;
+}
+
+/* 设置自定义背景滑块 */
+.dark-mode .form-label span {
+    color: #0dfdf1;
+}
+
+/* 平滑过渡动画 */
+.GUI-container,
+.sidebar,
+.GUI-content,
+.card,
+.GUI-btn,
+.GUI-input,
+.nav-item,
+.table,
+.accordion-button,
+.accordion-body,
+.snow {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, backdrop-filter 0.3s ease;
+}
