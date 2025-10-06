@@ -1,0 +1,269 @@
+/* 
+    此 CSS 文件存放自定义主题颜色功能 (暂未公开)
+*/
+:root {
+  --custom-primary-color: #4361ee;
+  --custom-accent-color: #4cc9f0;
+  --custom-background-color: #f8f9fa;
+  --custom-text-color: #212529;
+}
+
+/* 浅色模式下的自定义主题 */
+.light-mode.custom-theme {
+  --bs-body-color: var(--custom-text-color);
+  --bs-body-bg: var(--custom-background-color);
+}
+
+.light-mode.custom-theme .GUI-container {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light-mode.custom-theme .sidebar {
+  background: rgba(255, 255, 255, 0.85);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light-mode.custom-theme .sidebar-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light-mode.custom-theme .nav-item {
+  color: var(--custom-text-color);
+}
+
+.light-mode.custom-theme .nav-item:hover,
+.light-mode.custom-theme .nav-item.active {
+  background: rgba(var(--custom-accent-color-rgb), 0.15);
+  color: var(--custom-accent-color);
+}
+
+.light-mode.custom-theme .GUI-content {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.light-mode.custom-theme .card {
+  color: var(--custom-text-color);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.light-mode.custom-theme .card:hover {
+  background: rgba(0, 0, 0, 0.089) !important;
+}
+
+.light-mode.custom-theme .card .card:hover {
+  background: rgba(0, 0, 0, 0.103) !important;
+}
+
+.light-mode.custom-theme .card .card {
+  background: rgba(0, 0, 0, 0.034);
+}
+
+.light-mode.custom-theme .GUI-btn {
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--custom-text-color);
+}
+
+.light-mode.custom-theme .GUI-btn:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.light-mode.custom-theme .GUI-btn.primary {
+  background: var(--custom-primary-color);
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.light-mode.custom-theme .GUI-btn.primary:hover {
+  background: color-mix(in srgb, var(--custom-primary-color) 90%, black);
+}
+
+.light-mode.custom-theme .GUI-input {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--custom-text-color);
+}
+
+.light-mode.custom-theme .GUI-input:focus {
+  border-color: var(--custom-accent-color);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--custom-accent-color) 30%, transparent);
+}
+
+.light-mode.custom-theme .GUI-input::placeholder {
+  color: color-mix(in srgb, var(--custom-text-color) 60%, transparent);
+}
+
+.light-mode.custom-theme .content-section-header {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.light-mode.custom-theme .content-section-header:hover {
+  background: rgba(0, 0, 0, 0.103);
+}
+
+.light-mode.custom-theme .table {
+  --bs-table-color: var(--custom-text-color);
+  --bs-table-bg: transparent;
+  --bs-table-border-color: rgba(0, 0, 0, 0.1);
+}
+
+.light-mode.custom-theme .table-hover>tbody>tr:hover {
+  --bs-table-accent-bg: color-mix(in srgb, var(--custom-accent-color) 15%, transparent);
+}
+
+.light-mode.custom-theme .accordion-button {
+  color: var(--custom-text-color);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.light-mode.custom-theme .accordion-body {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: var(--custom-text-color);
+}
+
+.light-mode.custom-theme .accordion-button:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* 模态框 */
+.light-mode.custom-theme .modal-footer .GUI-btn {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--custom-text-color);
+}
+
+/* 深色模式下的自定义主题 */
+.dark-mode.custom-theme {
+  --bs-body-color: var(--custom-text-color);
+  --bs-body-bg: var(--custom-background-color);
+}
+
+.dark-mode.custom-theme .GUI-container {
+  background: rgba(30, 30, 46, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode.custom-theme .sidebar {
+  background: rgba(45, 45, 61, 0.6);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode.custom-theme .sidebar-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode.custom-theme .nav-item {
+  color: var(--custom-text-color);
+}
+
+.dark-mode.custom-theme .nav-item:hover,
+.dark-mode.custom-theme .nav-item.active {
+  background: rgba(var(--custom-accent-color-rgb), 0.15);
+  color: var(--custom-accent-color);
+}
+
+.dark-mode.custom-theme .GUI-content {
+  background: rgba(30, 30, 46, 0.4);
+}
+
+.dark-mode.custom-theme .card {
+  color: var(--custom-text-color);
+  background: rgba(45, 45, 61, 0.6);
+}
+
+.dark-mode.custom-theme .card:hover {
+  background: rgba(255, 255, 255, 0.089) !important;
+}
+
+.dark-mode.custom-theme .card .card:hover {
+  background: rgba(255, 255, 255, 0.103) !important;
+}
+
+.dark-mode.custom-theme .card .card {
+  background: rgba(255, 255, 255, 0.034);
+}
+
+.dark-mode.custom-theme .GUI-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--custom-text-color);
+}
+
+.dark-mode.custom-theme .GUI-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode.custom-theme .GUI-btn.primary {
+  background: var(--custom-primary-color);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode.custom-theme .GUI-btn.primary:hover {
+  background: color-mix(in srgb, var(--custom-primary-color) 90%, black);
+}
+
+.dark-mode.custom-theme .GUI-input {
+  background: rgba(30, 30, 46, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--custom-text-color);
+}
+
+.dark-mode.custom-theme .GUI-input:focus {
+  border-color: var(--custom-accent-color);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--custom-accent-color) 30%, transparent);
+}
+
+.dark-mode.custom-theme .GUI-input::placeholder {
+  color: color-mix(in srgb, var(--custom-text-color) 60%, transparent);
+}
+
+.dark-mode.custom-theme .content-section-header {
+  background: rgba(45, 45, 61, 0.8);
+}
+
+.dark-mode.custom-theme .content-section-header:hover {
+  background: rgba(255, 255, 255, 0.103);
+}
+
+.dark-mode.custom-theme .table {
+  --bs-table-color: var(--custom-text-color);
+  --bs-table-bg: transparent;
+  --bs-table-border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode.custom-theme .table-hover>tbody>tr:hover {
+  --bs-table-accent-bg: color-mix(in srgb, var(--custom-accent-color) 15%, transparent);
+}
+
+.dark-mode.custom-theme .accordion-button {
+  color: var(--custom-text-color);
+  background-color: rgba(45, 45, 61, 0.8);
+}
+
+.dark-mode.custom-theme .accordion-body {
+  background-color: rgba(45, 45, 61, 0.8);
+  color: var(--custom-text-color);
+}
+
+.dark-mode.custom-theme .accordion-button:hover {
+  background-color: rgba(30, 30, 46, 0.6);
+}
+
+/* 模态框 */
+.dark-mode.custom-theme .modal-footer .GUI-btn {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--custom-text-color);
+}
+
+/* 平滑过渡动画 */
+.custom-theme .GUI-container,
+.custom-theme .sidebar,
+.custom-theme .GUI-content,
+.custom-theme .card,
+.custom-theme .GUI-btn,
+.custom-theme .GUI-input,
+.custom-theme .nav-item,
+.custom-theme .table,
+.custom-theme .accordion-button,
+.custom-theme .accordion-body {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, backdrop-filter 0.3s ease;
+}
