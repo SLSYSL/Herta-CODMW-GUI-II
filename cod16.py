@@ -44,7 +44,7 @@ with open(CONFIG_FILE, 'w') as f:
     config.write(f)
 
 # 初始化全局变量
-launcher_title = '黑塔终端 GUI II V2.8.0 Beta 2'
+launcher_title = '黑塔终端 GUI II V2.8.0 Beta 3'
 app = Flask(__name__)
 exit_flag = False
 bot_exit_flag = False
@@ -216,10 +216,20 @@ class ConfigEditor:
 
 def run_flask_server():
     """在独立线程中启动Flask服务器"""
+    Game_PATH = config.get('SETTINGS', 'game_path')
     print("网页已激活，按下 Ctrl + H 可快速打开网页")
+    print("配置情况:")
+    print(f"Flask 调试模式(开启需要 Flask 启动模式 为开发模式): {flask_debug}")
+    print(f"调试模式: {DEV_MODE}")
+    print(f"申请管理员权限: {admin_ini}")
+    print(f"游戏路径: {Game_PATH}")
+    print(f"端口号: {flask_port}")
+    print(f"网页地址: 127.0.0.1:{flask_port}")
     if flask_start_mode:  # 调试模式用原生Flask
+        print("Flask 启动模式: 开发模式 (app.run)")
         app.run(host='0.0.0.0', port=flask_port, debug=flask_debug, threaded=True)
     else:                 # 生产模式用Waitress
+        print("Flask 启动模式: 生产模式 (Waitress)")
         serve(app, host='0.0.0.0', port=flask_port, threads=8)
 
 def defender_white(path):
