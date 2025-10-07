@@ -1,0 +1,493 @@
+/* 
+    此 CSS 文件存放主要功能
+*/
+
+:root {
+    --acrylic-light: rgba(255, 255, 255, 0.75);
+    --border-radius: 8px;
+    --primary: #0078d7;
+    --primary-hover: #0066b4;
+    --sidebar-width: 220px;
+    --header-height: 48px;
+    --custom-bg: none;
+    --blur-amount: 3px;
+}
+
+/* 超链接优化 */
+@-webkit-keyframes link-glow {
+    0% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+@keyframes link-glow {
+    0% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+a:not(.download-btn) {
+    position: relative;
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    transform: translateZ(0);
+}
+
+a:not(.download-btn)::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,
+            #60a5fa4d 0%,
+            #93c5fdb3 50%,
+            #a5b4fc4d 100%);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:not(.GUI-btn):hover {
+    color: #7ebdd8 !important;
+    text-shadow: 0 0 8px rgba(0, 102, 255, 0.2);
+}
+
+a:not(.GUI-btn):hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+    background-size: 200% auto;
+    -webkit-animation: link-glow 1.5s linear infinite;
+    animation: link-glow 1.5s linear infinite;
+}
+
+.GUI-container {
+    width: 100vw;
+    height: 100vh;
+    background: var(--custom-bg, var(--acrylic-light));
+    /* 增强毛玻璃效果 */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    /* 增加容器的毛玻璃效果 */
+    background-clip: padding-box;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 主要内容区域 */
+.main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* 侧边栏样式 */
+.sidebar {
+    width: var(--sidebar-width);
+    background: rgba(243, 243, 243, 0.8);
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.sidebar-header {
+    padding: 0 20px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.sidebar-header h4 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 20px;
+    padding-left: 12px;
+}
+
+.GUI-nav {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.nav-item:not(a) {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    margin: 4px 12px;
+    border-radius: 4px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.nav-item:hover:not(a),
+.nav-item.active:not(a) {
+    background: rgba(0, 0, 0, 0.1);
+    color: var(--primary);
+}
+
+.nav-item:hover:not(a) {
+    transform: scale(0.95);
+}
+
+.nav-item i:not(a) {
+    margin-right: 12px;
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+}
+
+/* 位置固定与动画 */
+.content-section {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    padding: 20px;
+    top: 0;
+    left: 0;
+}
+
+.content-section.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+ul {
+    margin-bottom: 0px;
+}
+
+/* 修复毛玻璃副作用 */
+.content-section {
+    pointer-events: none;
+    cursor: none !important;
+}
+
+.content-section.active {
+    pointer-events: auto;
+    cursor: auto !important;
+}
+
+/* 二级菜单样式 */
+.dropdown-menu {
+    background: rgba(243, 243, 243, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    padding: 4px 0;
+    margin: 4px 0;
+    min-width: 180px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    /* 动画效果 */
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    /* 修正位置 */
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    padding: 8px 20px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    transition: all 0.2s;
+}
+
+.dropdown-item:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: var(--primary);
+}
+
+.GUI-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    position: relative;
+    /* 增强内容区毛玻璃效果 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 卡片样式 */
+.card {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    color: rgb(58, 58, 58);
+}
+
+.light-mode .card,
+.light-mode .card .card {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card:hover {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card .card {
+    padding: 0px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.card .card:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* 按钮样式 */
+.GUI-btn {
+    text-align: center;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.05);
+    color: #000;
+}
+
+.GUI-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* 页面内容 */
+.content-section-header {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 15px;
+    padding-bottom: 10px;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.content-section.active .content-section-header {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* 卡片动画 */
+.content-section .card {
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+.content-section.active .card {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.GUI-container,
+.GUI-header,
+.sidebar,
+.GUI-content,
+.card,
+.GUI-input,
+.text-warning,
+label span,
+footer,
+.dropdown-menu,
+.content-section,
+.content-section-header {
+    transform: translateZ(0);
+    transition: all 0.5s ease, backdrop-filter 0s !important;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .GUI-container {
+        height: 95vh;
+    }
+
+    .sidebar {
+        position: absolute;
+        z-index: 100;
+        height: calc(100% - var(--header-height));
+        transform: translateX(-100%);
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay {
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 99;
+        display: none;
+    }
+
+    .sidebar-overlay.show {
+        display: block;
+    }
+
+    .menu-toggle {
+        display: block !important;
+        margin-right: 16px;
+    }
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* 音乐播放器 */
+.aplayer {
+    border-radius: 7px !important;
+    color: black;
+}
+
+.aplayer .aplayer-icon {
+    display: inline-block !important;
+}
+
+/* 模态框 */
+.modal-footer {
+    padding: 5px;
+}
+
+/* 光标 */
+input.form-check-input,
+select.form-select {
+    cursor: pointer;
+}
+
+label {
+    cursor: text;
+}
+
+/* 底部 */
+footer {
+    color: black;
+    font-size: 13px;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+
+/* 按钮动画 */
+.GUI-btn {
+    /* 基础样式 */
+    transform: translateZ(0);
+    overflow: hidden;
+    width: 200px;
+    /* 设置默认宽度 */
+    transition: all 0.8s ease;
+}
+
+@media screen and (min-width: 1400px) {
+    .GUI-btn:hover {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 1399px) {
+    .GUI-btn {
+        width: auto;
+    }
+}
+
+/* 表格 */
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: center;
+}
+
+tr:first-child :first-child {
+    border-top-left-radius: 10px;
+}
+
+tr:first-child :last-child {
+    border-top-right-radius: 10px;
+}
+
+tr:last-child :first-child {
+    border-bottom-left-radius: 10px;
+}
+
+tr:last-child :last-child {
+    border-bottom-right-radius: 10px;
+}
+
+/* 间隔优化 */
+h4 {
+    margin-bottom: 5px;
+}
+
+/* 设置游戏白名单动画 */
+@keyframes FadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes FadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(10px); }
+}
+
+.fade-in {
+    animation: FadeIn 0.5s ease forwards;
+}
+
+.fade-out {
+    animation: FadeOut 0.5s ease forwards;
+}
